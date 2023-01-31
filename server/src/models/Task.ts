@@ -1,12 +1,13 @@
 import mongoose, { Document } from "mongoose";
+
+type TStatus = "no-status" | "complete" | "pending";
+
 export type TTask = Document & {
   text: string;
   date: string;
   users: Array<string>;
-  status: string;
+  status: TStatus;
 };
-
-type TStatus = "no-status" | "complete" | "pending";
 
 const schema = new mongoose.Schema({
   text: {

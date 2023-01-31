@@ -45,7 +45,7 @@ export const create = async (req: Request, res: Response) => {
 
 export const update = async (req: Request, res: Response) => {
   try {
-    const { text, date, status, users, projectId, taskId } = req.body;
+    const { status, projectId, taskId } = req.body;
 
     const Task = mongoose.model<TTask>(projectId, taskSchema);
     const task = await Task.findByIdAndUpdate(taskId, { status });
